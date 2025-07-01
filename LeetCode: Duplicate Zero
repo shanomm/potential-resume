@@ -1,9 +1,5 @@
 
 https://leetcode.com/explore/learn/card/fun-with-arrays/525/inserting-items-into-an-array/3245/
-Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right.
-
-Note that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.
-
  
 
 Example 1:
@@ -16,9 +12,22 @@ Example 2:
 Input: arr = [1,2,3]
 Output: [1,2,3]
 Explanation: After calling your function, the input array is modified to: [1,2,3]
- 
 
-Constraints:
+In-place operation: Editing an array without assigning values to it, but editing  it's element
+.sort, .append
 
-1 <= arr.length <= 104
-0 <= arr[i] <= 9
+Only Code (Maybe change to Psudocode Later):
+def duplicateZeros(self, arr: List[int]) -> None:
+        i = 0
+        length = len(arr)
+        zero_added = 0
+        while i < length:
+            if arr[i] == 0:
+                if i == length:
+                    pass
+                else:
+                    zero_added += 1
+                    arr.insert(i, 0)
+                    i += 1
+            i += 1
+        arr[:] = arr[0:(len(arr)-zero_added)]
