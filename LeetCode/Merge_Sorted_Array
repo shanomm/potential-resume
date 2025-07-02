@@ -1,0 +1,32 @@
+ def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+      i = 0
+      curr_length = m-1
+      def merge():
+          nonlocal i, curr_length
+          for e in nums2:
+              while True:
+                  # if e is less than arr1[i]
+                  if e <= nums1[i]:
+                      nums1.insert(i,e)
+                      curr_length +=1
+                      i += 1
+                      break
+                  else:
+                      # if e is more than arr1[i]
+                      if i == curr_length:
+                          # if e is at the edge
+                          nums1.insert(i+1,e)
+                          i +=1
+                          curr_length += 1
+                          break
+                          # e > arr1[i] BUT not at the edge yet
+                      else:
+                          i +=1
+          nums1[:] = nums1[:m+n]
+
+
+      if m == 0:
+          nums1[:] = nums2[:]
+      else:
+          merge()
+      
