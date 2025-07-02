@@ -1,4 +1,5 @@
- def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+Working in notion: https://www.notion.so/Merge-Sorted-Array-224662f2e1c4806c87e8fbfb6d2e1fe7
+def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
       i = 0
       curr_length = m-1
       def merge():
